@@ -10,7 +10,7 @@
         android:id="@+id/textView4"
         android:layout_width="403dp"
         android:layout_height="95dp"
-        android:text="UMKC Baseball Trackers"
+        android:text="Umpire Buddy 1.0"
         android:textAlignment="center"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
