@@ -16,6 +16,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
     // Define buttons
     Button weatherButton;
+    Button translateButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,17 @@ public class MainActivity extends AppCompatActivity {
         weatherButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WeatherActivity.class);
+                finish();
+                startActivity(intent);
+            }
+        });
+
+        // Initialized translate button
+        translateButton = (Button) findViewById(R.id.translateButton);
+        // Create a click action for weather button
+        translateButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, TranslateActivity.class);
                 finish();
                 startActivity(intent);
             }

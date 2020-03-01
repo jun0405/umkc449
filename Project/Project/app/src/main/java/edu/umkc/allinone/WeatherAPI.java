@@ -120,10 +120,10 @@ public class WeatherAPI {
      * @param jsonObj JSON object for the fetched weather info
      * @return the feels like temperature
      */
-    public double getFeelsLike(JSONObject jsonObj){
+    public Double getFeelsLike(JSONObject jsonObj){
         Object main = jsonObj.get("main");
         JSONObject obj = (JSONObject) JSONValue.parse(main.toString());
-        return (double) obj.get("feels_like");
+        return (Double) obj.get("feels_like");
     }
 
     /**
@@ -132,10 +132,10 @@ public class WeatherAPI {
      * @param jsonObj JSON object for the fetched weather info
      * @return the min temperature
      */
-    public double getTempMin(JSONObject jsonObj){
+    public Long getTempMin(JSONObject jsonObj){
         Object main = jsonObj.get("main");
         JSONObject obj = (JSONObject) JSONValue.parse(main.toString());
-        return (double) obj.get("temp_min");
+        return (Long) obj.get("temp_min");
     }
 
     /**
@@ -144,10 +144,10 @@ public class WeatherAPI {
      * @param jsonObj JSON object for the fetched weather info
      * @return the max temperature
      */
-    public double getTempMax(JSONObject jsonObj){
+    public Long getTempMax(JSONObject jsonObj){
         Object main = jsonObj.get("main");
         JSONObject obj = (JSONObject) JSONValue.parse(main.toString());
-        return (double) obj.get("temp_max");
+        return (Long) obj.get("temp_max");
     }
 
     /**
