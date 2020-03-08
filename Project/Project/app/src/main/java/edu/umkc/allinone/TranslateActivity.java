@@ -19,9 +19,8 @@ import java.io.IOException;
  * @author Jun Yang
  */
 
-
 public class TranslateActivity extends AppCompatActivity {
-
+    // Define buttons and edit text fields
     Button translateButton;
     Button translateHomeButton;
     Spinner fromSpinner;
@@ -36,11 +35,11 @@ public class TranslateActivity extends AppCompatActivity {
 
         // Create two spinner to hold languages (from/to languages)
         fromSpinner = (Spinner) findViewById(R.id.from_spinner);
-        ArrayAdapter<CharSequence> fromAdapter = ArrayAdapter.createFromResource(this, R.array.planets_array, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> fromAdapter = ArrayAdapter.createFromResource(this, R.array.translate_array, android.R.layout.simple_spinner_item);
         fromAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         fromSpinner.setAdapter(fromAdapter);
         toSpinner = (Spinner) findViewById(R.id.to_spinner);
-        ArrayAdapter<CharSequence> toAdapter = ArrayAdapter.createFromResource(this, R.array.planets_array, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> toAdapter = ArrayAdapter.createFromResource(this, R.array.translate_array, android.R.layout.simple_spinner_item);
         toAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         toSpinner.setAdapter(toAdapter);
 
@@ -56,9 +55,9 @@ public class TranslateActivity extends AppCompatActivity {
                 // Get input from spinners and edit text
                 String fromLanguage = String.valueOf(fromSpinner.getSelectedItem());
                 String toLanguage = String.valueOf(toSpinner.getSelectedItem());
-                String fromTest = translateEditText.getText().toString();
+                String fromText = translateEditText.getText().toString();
                 // Call async task to perform text translation
-                new performTranslate().execute(fromLanguage, toLanguage, fromTest);
+                new performTranslate().execute(fromLanguage, toLanguage, fromText);
             }
         });
 
@@ -80,13 +79,13 @@ public class TranslateActivity extends AppCompatActivity {
             // Get arguments that got passed into this async task
             String fromLanguage = params[0];
             String toLanguage = params[1];
-            String fromTest = params[2];
+            String fromText = params[2];
             // Initialized the API object
             TranslateAPI api = new TranslateAPI();
             JSONObject fetch = null;
             try {
                 // Perform translation
-                fetch = api.fetch(fromTest, fromLanguage, toLanguage);
+                fetch = api.fetch(fromText, fromLanguage, toLanguage);
             } catch (IOException e) {
                 e.printStackTrace();
             }
