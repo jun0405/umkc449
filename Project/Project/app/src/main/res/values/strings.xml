@@ -169,7 +169,8 @@
         <item>ZMK</item>
         <item>XAG</item>
         <item>ZWL</item>
-    </string-array>>
+    </string-array>
+    >
 
     <string-array name="translate_array">
         <item>Afrikaans</item>
